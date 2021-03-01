@@ -1,6 +1,6 @@
 # AlgorithmAestetic
 
-## Pseudo-code:
+Pseudo-code:
 
 premierX=0
 premierY=0
