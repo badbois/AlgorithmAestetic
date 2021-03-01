@@ -1,12 +1,40 @@
+var gui = new dat.GUI();
+var params = {
+    Random_Seed: 0,
+    Download_Image: function () { return save(); },
+};
+gui.add(params, "Random_Seed", 0, 255, 1);
+gui.add(params, "Download_Image");
+var premierX = 0;
+var premierY = 0;
+var precedentX = 0;
+var precedentY = 0;
 function draw() {
-    background(135, 206, 235);
-    rectMode(CENTER);
-    noStroke();
-    fill(132, 46, 27);
-    rect(width / 2, height * 0.75, 200, 66);
-    fill(186, 196, 200);
-    triangle((width / 2) - 100, (height * 0.75) - 33, (width / 2) + 100, (height * 0.75) - 33, width / 2, height * 0.50);
-    rect(width / 2, (height * 0.75) + 18, 20, 30);
+    randomSeed(params.Random_Seed);
+    background("white");
+    strokeWeight(1);
+    for (var i = 1; i < 16; i++) {
+        for (var j = 1; j < 20; j++) {
+            for (var k = 0; k < 8; k++) {
+                var X = random((i - 1) * (width / 14), (i) * (width / 14));
+                var Y = random((j - 1) * (height / 19), (j) * (height / 19));
+                if (k == 0) {
+                    premierX = X;
+                    premierY = Y;
+                    precedentX = premierX;
+                    precedentY = premierY;
+                }
+                else {
+                    line(X, Y, precedentX, precedentY);
+                    if (k == 8) {
+                        line(X, Y, premierX, premierY);
+                    }
+                    precedentX = X;
+                    precedentY = Y;
+                }
+            }
+        }
+    }
 }
 function setup() {
     p6_CreateCanvas();
@@ -14,7 +42,7 @@ function setup() {
 function windowResized() {
     p6_ResizeCanvas();
 }
-var __ASPECT_RATIO = 1;
+var __ASPECT_RATIO = 0.84;
 var __MARGIN_SIZE = 25;
 function __desiredCanvasWidth() {
     var windowRatio = windowWidth / windowHeight;
