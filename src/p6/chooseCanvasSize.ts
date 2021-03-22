@@ -8,24 +8,35 @@
 // -------------------
 const __ASPECT_RATIO = 0.84
 const __MARGIN_SIZE = 25 // in pixels
+let p6_canvasStyle=0
 
 function __desiredCanvasWidth(): number {
-    const windowRatio = windowWidth / windowHeight
-    if (__ASPECT_RATIO > windowRatio) {
-        return windowWidth - __MARGIN_SIZE * 2
+    if(p6_canvasStyle==1){
+        const windowRatio = windowWidth / windowHeight
+        if (__ASPECT_RATIO > windowRatio) {
+            return windowWidth - __MARGIN_SIZE * 2
+        }
+        else {
+            return __desiredCanvasHeight() * __ASPECT_RATIO
+        }
+    }else{
+        return windowWidth
     }
-    else {
-        return __desiredCanvasHeight() * __ASPECT_RATIO
-    }
+    
 }
 function __desiredCanvasHeight(): number {
-    const windowRatio = windowWidth / windowHeight
-    if (__ASPECT_RATIO > windowRatio) {
-        return __desiredCanvasWidth() / __ASPECT_RATIO
+    if(p6_canvasStyle==1){
+        const windowRatio = windowWidth / windowHeight
+        if (__ASPECT_RATIO > windowRatio) {
+            return __desiredCanvasWidth() / __ASPECT_RATIO
+        }
+        else {
+            return windowHeight - __MARGIN_SIZE * 2
+        }
+    }else{
+        return windowHeight
     }
-    else {
-        return windowHeight - __MARGIN_SIZE * 2
-    }
+    
 }
 
 // -------------------
