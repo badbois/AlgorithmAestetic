@@ -33,6 +33,7 @@ function mouseClicked() {
             if (mouseY < 550 && mouseY > 150) {
                 MENU = 1;
                 p6_canvasStyle = 1;
+                gui.open();
             }
         }
     }

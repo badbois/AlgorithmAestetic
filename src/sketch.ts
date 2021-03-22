@@ -46,6 +46,7 @@ function mouseClicked() {
         if (mouseY < 550 && mouseY > 150) {
           MENU = 1
           p6_canvasStyle=1;
+          gui.open()
         }
       }
     }
@@ -69,25 +70,29 @@ function draw() {
         background("white")
         strokeWeight(1)
 
-        //Deuxiemme code
+        //Second code
         noFill()
         for(let x=1; x<(params.nb_Columns+2); x++){
             for(let y=1; y<(params.nb_Lines+2); y++){
                 beginShape()
                 for(let i=0; i<8; i++){
+                    //Picking a point
                     let X=random((x-1)*(width/params.nb_Columns),(x)*(width/params.nb_Columns))
                     let Y=random((y-1)*(height/params.nb_Lines),(y)*(height/params.nb_Lines))
+                    //Draw a line between point
                     vertex(X, Y)
                 }
+                //Closing shape
                 endShape(CLOSE)
 
             }
         }
         
-        //Premier code
-        /*for(let x=1; x<(params.nb_Columns+2); x++){
+        //first code
+       /* for(let x=1; x<(params.nb_Columns+2); x++){
             for(let y=1; y<(params.nb_Lines+2); y++){
                 for(let k=0; k<8; k++){
+                    //picking a random point
                     let X=random((x-1)*(width/params.nb_Columns),(x)*(width/params.nb_Columns))
                     let Y=random((y-1)*(height/params.nb_Lines),(y)*(height/params.nb_Lines))
                     if(k==0){
@@ -96,7 +101,9 @@ function draw() {
                         precedentX=premierX
                         precedentY=premierY
                     }else{
+                        //Draw a line between points
                         line(X, Y, precedentX, precedentY)
+                        //Closing the shape
                         if(k==7){
                             line(X, Y, premierX, premierY)
                         }
