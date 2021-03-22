@@ -1,4 +1,5 @@
 var gui = new dat.GUI();
+gui.close();
 var params = {
     Random_Seed: 0,
     nb_Lines: 19,

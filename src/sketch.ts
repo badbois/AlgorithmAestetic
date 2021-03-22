@@ -3,6 +3,7 @@
 // -------------------
 
 const gui = new dat.GUI()
+gui.close()
 const params = {
     Random_Seed: 0,
     nb_Lines: 19,
