@@ -38,12 +38,6 @@ function menu(){
     text('I choose an artwork made by Georg Nees : "8-Ecke" that you can see below', windowWidth/2, 125);  
     image(img, (windowWidth/2)-150, 150);
     text('Click on the image to see my recoding of this work', windowWidth/2, 575);
-    let link= createA("https://github.com/badbois/Recoding_Project",
-"click here to see the github page", "_blank");
-   // link.size(14);
-    link.position(windowWidth/2-100, 600);
-    
-
 }
 
 function mouseClicked() {
@@ -68,7 +62,6 @@ let precedentY=0
 
 function draw() {
     p6_ResizeCanvas();
-    rect(0,0 ,width, height)
     if(p6_canvasStyle==0){
         menu()
     }else if(p6_canvasStyle==1){
