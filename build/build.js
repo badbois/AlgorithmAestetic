@@ -26,6 +26,8 @@ function menu() {
     text('I choose an artwork made by Georg Nees : "8-Ecke" that you can see below', windowWidth / 2, 125);
     image(img, (windowWidth / 2) - 150, 150);
     text('Click on the image to see my recoding of this work', windowWidth / 2, 575);
+    var link = createA("https://github.com/badbois/Recoding_Project", "click here to see the github page", "_blank");
+    link.position(windowWidth / 2 - 100, 600);
 }
 function mouseClicked() {
     if (MENU == 0) {
